@@ -19,6 +19,8 @@ public class Player implements Runnable
         this.drawnCards = array;
     }
 
+    // run for player(threads).
+    // Så længe decket ikke er tomt, prøver den at trækker et kort, og kalder wait() på et statisk final objekt.
     @Override
     public void run()
     {
@@ -37,8 +39,6 @@ public class Player implements Runnable
             }
         }
     }
-
-
 
     public Deck.Card getPlayerCard()
     {

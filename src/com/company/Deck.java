@@ -9,13 +9,15 @@ public class Deck
     private Stack<Card> stack = new Stack<>();
     private Deck.Card[] drawnCards;
 
-    //sync til tråd
+    //sync til tråde så de ikke trækker samme kort. Udskriver kortet inden det trækkes + trådens navn.
     public synchronized Deck.Card drawOneCard()
     {
         System.out.println(Thread.currentThread().getName() + ": " + stack.peek());
         return stack.pop();
     }
 
+    //constructor for deck med 52 kort. Første for loop er til hvis man ønsker et større deck.
+    //blander derefter decket
     public Deck(int number)
     {
         for (int i = 0; i < 1; i++)
@@ -33,6 +35,7 @@ public class Deck
         drawnCards = new Deck.Card[number];
     }
 
+    //sætter værdi for ES
     public void setCardValues(int x)
     {
         if(x == 0)
@@ -81,7 +84,7 @@ public class Deck
         }
     }
 
-    //ikke synchronized
+    //ikke synchronized draw metode
     public Card draw()
     {
         return stack.pop();

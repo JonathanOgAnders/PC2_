@@ -10,8 +10,6 @@ public class Game
     private ArrayList<Thread> players;
     private CheckDrawCards checkDrawCards;
 
-
-
     public Game(int j, Deck deck)
     {
         this.deck = deck;
@@ -27,7 +25,6 @@ public class Game
             players.get(i).start();
         }
         checkDrawCards.startCheckDrawnCards();
-
     }
 
     //tilføj players -threads- til player array
@@ -36,7 +33,6 @@ public class Game
         for (int j = 0; j < i; j++)
         {
             players.add(new Thread(new Player(deck,"Thread"+j,j,deck.getDrawnCards()),"Thread"+j));
-
         }
     }
 
